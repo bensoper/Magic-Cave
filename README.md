@@ -1,6 +1,3 @@
 "# Magic-Cave" 
 
-"# Magic-Cave" 
-"# Magic-Cave" 
-"# Magic-Cave" 
-"# Magic-Cave" 
+This is my project Magic cave.
