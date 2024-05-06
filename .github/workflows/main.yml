@@ -1,10 +1,26 @@
-name: Build and Generate SLSA Provenance
-on: [push]
+name: Your Workflow Name
+
+on:
+  push:
+    branches: [ main, master ]
+
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: slsa-framework/github-actions/provenance@main
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Add your build, test, etc. steps here
+
+    - name: Generate SLSA Provenance
+      uses: slsa-framework/slsa-github-generator@main
       with:
-        entrypoint: dotnet publish --self-contained -r win-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true
+        output: 'provenance.json'
+
+    - name: Upload Provenance
+      uses: actions/upload-artifact@v2
+      with:
+        name: provenance
+        path: provenance.json
