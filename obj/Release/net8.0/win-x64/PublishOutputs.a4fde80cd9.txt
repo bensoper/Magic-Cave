@@ -1,0 +1,5 @@
+C:\Users\super\OneDrive\Documents\School\Spring 2024\CSC4026 Secure Cloud Programming\MagicCave\bin\Release\net8.0\win-x64\publish\appsettings.Development.json
+C:\Users\super\OneDrive\Documents\School\Spring 2024\CSC4026 Secure Cloud Programming\MagicCave\bin\Release\net8.0\win-x64\publish\appsettings.json
+C:\Users\super\OneDrive\Documents\School\Spring 2024\CSC4026 Secure Cloud Programming\MagicCave\bin\Release\net8.0\win-x64\publish\MagicCave.pdb
+C:\Users\super\OneDrive\Documents\School\Spring 2024\CSC4026 Secure Cloud Programming\MagicCave\bin\Release\net8.0\win-x64\publish\aspnetcorev2_inprocess.dll
+C:\Users\super\OneDrive\Documents\School\Spring 2024\CSC4026 Secure Cloud Programming\MagicCave\bin\Release\net8.0\win-x64\publish\MagicCave.exe
