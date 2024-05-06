@@ -2,7 +2,7 @@ name: SLSA Generation
 on:
     push:
         branches:
-            - main
+            - main, master
 
 jobs:
     generate-slsa:
