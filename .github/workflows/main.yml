@@ -10,25 +10,25 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v2
+                uses: actions/checkout@v2
 
             - name: Install dependencies
-              run: |
+                run: |
                     # Install SLSA Generator and its dependencies
                     curl -sSL https://github.com/slsa-framework/slsa-github-generator/releases/download/vX.Y.Z/slsa-generator-linux-amd64 -o slsa-generator
                     chmod +x slsa-generator
                     sudo mv slsa-generator /usr/local/bin/
 
             - name: Generate SLSA
-              run: |
+                run: |
                     # Generate SLSA in JSON format using the SLSA Generator
                     slsa-generator generate-slsa --output ../path/to/slsa1.json
                     slsa-generator generate-slsa --output ../path/to/slsa2.json
                     slsa-generator generate-slsa --output ../path/to/slsa3.json
 
             - name: Save SLSA as artifact
-              uses: actions/upload-artifact@v2
-              with:
+                uses: actions/upload-artifact@v2
+                with:
                     name: slsa
                     path: |
                         ../path/to/slsa1.json
@@ -36,17 +36,22 @@ jobs:
                         ../path/to/slsa3.json
 
             - name: Generate SLSA Provenance Attestation
-              run: |
+                run: |
                     # Generate SLSA provenance attestation using the SLSA Generator
                     slsa-generator generate-attestation --slsa ../path/to/slsa1.json --output ../path/to/slsa-attestation1.json
                     slsa-generator generate-attestation --slsa ../path/to/slsa2.json --output ../path/to/slsa-attestation2.json
                     slsa-generator generate-attestation --slsa ../path/to/slsa3.json --output ../path/to/slsa-attestation3.json
 
             - name: Save SLSA Provenance Attestation as artifact
-              uses: actions/upload-artifact@v2
-              with:
+                uses: actions/upload-artifact@v2
+                with:
                     name: slsa-attestation
                     path: |
                         ../path/to/slsa-attestation1.json
                         ../path/to/slsa-attestation2.json
                         ../path/to/slsa-attestation3.json
+
+            - name: Build Attestation
+                uses: actions/attest-build-provenance@v1
+                with:
+                    attestation-file: ../path/to/slsa-attestation1.json
